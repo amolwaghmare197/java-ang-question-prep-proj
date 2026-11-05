@@ -1,0 +1,127 @@
+.excel-container {
+
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.excel-header {
+
+  background: linear-gradient(
+    135deg,
+    #1e3a8a,
+    #2563eb
+  );
+
+  color: white;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  margin-bottom: 20px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15);
+}
+
+.excel-header h1 {
+
+  margin: 0;
+  font-size: 32px;
+}
+
+.excel-header p {
+
+  margin-top: 10px;
+  opacity: .9;
+}
+
+.table-wrapper {
+
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+}
+
+.excel-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.excel-table thead {
+
+  background: #0f172a;
+
+  color: white;
+
+  position: sticky;
+  top: 0;
+}
+
+.excel-table th {
+
+  padding: 16px;
+
+  text-align: left;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.excel-table td {
+
+  padding: 14px 16px;
+
+  border-bottom:
+    1px solid #e2e8f0;
+
+  vertical-align: middle;
+}
+
+.excel-table tbody tr {
+
+  transition: .2s ease;
+}
+
+.excel-table tbody tr:hover {
+
+  background: #eff6ff;
+}
+
+.tech-badge {
+
+  background: #dbeafe;
+
+  color: #1d4ed8;
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  display: inline-block;
+}
+
+.excel-table tbody tr:nth-child(even) {
+
+  background: #f8fafc;
+}
+
+.excel-table tbody tr:nth-child(even):hover {
+
+  background: #e0f2fe;
+}

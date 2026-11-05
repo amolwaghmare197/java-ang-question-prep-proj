@@ -1,0 +1,41 @@
+<div class="excel-container">
+
+  <div class="excel-header">
+    <h1>📊 Excel Question Repository</h1>
+    <p>Total Questions: {{ rows.length }}</p>
+  </div>
+
+  <div class="table-wrapper">
+
+    <table class="excel-table">
+
+      <thead>
+      <tr>
+        <th>Technology</th>
+        <th>Question</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <tr *ngFor="let row of rows">
+
+        <td>
+          <span class="tech-badge">
+            {{ row.Technology || row.TECHNOLOGY || row.technology }}
+          </span>
+        </td>
+
+        <td>
+          {{ row.Question || row.QUESTION || row.question }}
+        </td>
+
+      </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

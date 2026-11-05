@@ -1,0 +1,117 @@
+<div class="question-container">
+
+  <!-- Header -->
+  <div class="header-card">
+
+    <div class="header-content">
+      <div>
+        <h1>{{ technologyNameHeader }} Interview Questions</h1>
+        <p>
+          Practice and revise important interview questions for
+          <strong>{{ technologyNameHeader }}</strong>
+        </p>
+      </div>
+
+      <button class="add-btn"
+              (click)="openAddQuestionForm()">
+        + Add Question
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Add Question Form -->
+  <div *ngIf="showForm" class="form-card">
+
+    <h3>Add New Question</h3>
+
+    <div class="form-group">
+      <label>Question</label>
+      <textarea
+        [(ngModel)]="newQuestion.question"
+        placeholder="Enter Question">
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Answer</label>
+      <textarea
+        [(ngModel)]="newQuestion.answer"
+        placeholder="Enter Answer">
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Difficulty</label>
+
+      <select [(ngModel)]="newQuestion.difficulty">
+        <option value="EASY">Easy</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HARD">Hard</option>
+      </select>
+    </div>
+
+    <div class="button-group">
+
+      <button class="save-btn"
+              (click)="saveQuestion()">
+        Save Question
+      </button>
+
+      <button class="cancel-btn"
+              (click)="showForm=false">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Question Table -->
+  <div class="table-card">
+
+    <div class="action-bar">
+
+      <button
+        class="save-selection-btn"
+        (click)="saveRevisionQuestions()">
+
+        Save Revision List
+
+      </button>
+
+    </div>
+
+    <table>
+
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>QUESTION</th>
+        <th>REVISION</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <tr *ngFor="let item of questions">
+
+        <td>{{ item.id }}</td>
+
+        <td>{{ item.question }}</td>
+
+        <td>
+          <input
+            type="checkbox"
+            [(ngModel)]="item.markedForRevision">
+        </td>
+
+      </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

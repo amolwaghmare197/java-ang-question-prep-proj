@@ -1,0 +1,149 @@
+<div class="technology-page">
+
+  <!-- HERO SECTION -->
+  <div class="hero-section">
+
+    <h1>Master Interview Preparation</h1>
+
+    <p>
+      Prepare for Java, Spring Boot, Microservices, AWS,
+      Angular, React, Hibernate and more.
+    </p>
+
+    <div class="search-box">
+      <input
+        type="text"
+        placeholder="Search technology..." />
+    </div>
+
+    <div class="hero-actions">
+
+      <button
+        class="add-tech-btn"
+        (click)="showTechnologyForm = true">
+
+        + Add Technology
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ADD TECHNOLOGY FORM -->
+
+  <div
+    *ngIf="showTechnologyForm"
+    class="technology-form-card">
+
+    <h2>Add New Technology</h2>
+
+    <div class="form-group">
+
+      <label>Technology Name</label>
+
+      <input
+        type="text"
+        [(ngModel)]="newTechnology.name"
+        placeholder="Enter Technology Name">
+
+    </div>
+
+    <div class="button-group">
+
+      <button
+        class="save-btn"
+        (click)="saveTechnology()">
+
+        Save
+
+      </button>
+
+      <button
+        class="cancel-btn"
+        (click)="showTechnologyForm = false">
+
+        Cancel
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+
+  <div class="stats-section">
+
+    <div class="stat-card">
+      <h2>{{ technologies.length }}</h2>
+      <span>Technologies</span>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ questionCount }}</h2>
+      <span>Questions</span>
+    </div>
+
+    <div class="stat-card">
+      <h2>500+</h2>
+      <span>Master Answers</span>
+    </div>
+
+  </div>
+
+  <!-- TECHNOLOGY LIST -->
+
+  <div class="section-header">
+    <h2>Popular Technologies</h2>
+  </div>
+
+  <div class="technology-grid">
+
+    <div
+      class="technology-card"
+      *ngFor="let tech of technologies"
+      [routerLink]="['/questions', tech.id]">
+
+      <div class="tech-icon">
+
+        <span *ngIf="tech.name === 'Java'">☕</span>
+        <span *ngIf="tech.name === 'Spring Boot'">🌱</span>
+        <span *ngIf="tech.name === 'AWS'">☁️</span>
+        <span *ngIf="tech.name === 'Angular'">🅰️</span>
+        <span *ngIf="tech.name === 'React'">⚛️</span>
+        <span *ngIf="tech.name === 'Hibernate'">🔄</span>
+        <span *ngIf="tech.name === 'JWT'">🔐</span>
+        <span *ngIf="tech.name === 'MySQL'">🗄️</span>
+
+        <span
+          *ngIf="
+          tech.name !== 'Java' &&
+          tech.name !== 'Spring Boot' &&
+          tech.name !== 'AWS' &&
+          tech.name !== 'Angular' &&
+          tech.name !== 'React' &&
+          tech.name !== 'Hibernate' &&
+          tech.name !== 'JWT' &&
+          tech.name !== 'MySQL'
+        ">
+          🚀
+        </span>
+
+      </div>
+
+      <h3>{{ tech.name }}</h3>
+
+      <p>
+        Explore interview questions and detailed answers
+      </p>
+
+      <div class="card-footer">
+        <span>View Questions →</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
