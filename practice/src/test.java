@@ -119,7 +119,9 @@ public class test {
         //a.removeRepeated();
 
         //Q40 getTwoListSortConcatDistinct
-        a.getTwoListSortConcatDistinct();
+        //a.getTwoListSortConcatDistinct();
+
+        a.intArrSecondHighest();
     }
 
     public void printAll(List<Employee> l1){
@@ -326,5 +328,9 @@ public class test {
         s1.stream().collect(Collectors.toSet()).forEach(System.out::println);
     }
 
+    public void intArrSecondHighest(){
+        int arr [] ={1,2,3,6,5,4,8,9,7,4,5,6};
 
+        Arrays.stream(arr).boxed().sorted(Comparator.comparingInt(Integer::intValue).reversed()).skip(1).findFirst().ifPresent(System.out::println);
+    }
     }
