@@ -5,6 +5,8 @@ import com.example.crud_oct.DTO.QuestionDto;
 import com.example.crud_oct.DTO.RevisionQuestionDto;
 import com.example.crud_oct.Entity.Question;
 import com.example.crud_oct.Repo.QuestionRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.List;
 
 @Service
 public class QuestionServiceImpl  {
+
+    Logger log = LoggerFactory.getLogger(QuestionServiceImpl.class);
 
     @Autowired
     private QuestionRepository repository;
@@ -81,6 +85,8 @@ public class QuestionServiceImpl  {
 
     public List<QuestionDto> getByTechnologyId(int technology) {
 
+        /*log.info(repository.findByTechnologyId(technology).toString());
+        List<Question> s2 = repository.findByTechnologyId(technology);*/
         return repository.findByTechnologyId(technology)
                 .stream()
                 .map(this::mapToDto)
@@ -102,6 +108,7 @@ public class QuestionServiceImpl  {
         dto.setQuestion(question.getQuestion());
         dto.setAnswer(question.getAnswer());
         dto.setDifficulty(question.getDifficulty());
+        dto.setRevisionCount(question.getRevisionCount());
         return dto;
     }
 
@@ -117,6 +124,8 @@ public class QuestionServiceImpl  {
 
             question.setMarkedForRevision(
                     dto.getMarkedForRevision());
+
+            question.setRevisionCount(dto.getRevisionCount());
 
             repository.save(question);
         }

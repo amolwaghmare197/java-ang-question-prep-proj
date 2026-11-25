@@ -5,6 +5,7 @@ public class RevisionQuestionDto {
     private Long id;
 
     private Boolean markedForRevision;
+    private Integer revisionCount;
 
     public Long getId() {
         return id;
@@ -22,9 +23,18 @@ public class RevisionQuestionDto {
         this.markedForRevision = markedForRevision;
     }
 
-    public RevisionQuestionDto(Long id, Boolean markedForRevision) {
+    public Integer getRevisionCount() {
+        return revisionCount;
+    }
+
+    public void setRevisionCount(Integer revisionCount) {
+        this.revisionCount = revisionCount;
+    }
+
+    public RevisionQuestionDto(Long id, Boolean markedForRevision, Integer revisionCount) {
         this.id = id;
         this.markedForRevision = markedForRevision;
+        this.revisionCount = revisionCount;
     }
 
     @Override
@@ -32,6 +42,7 @@ public class RevisionQuestionDto {
         return "RevisionQuestionDto{" +
                 "id=" + id +
                 ", markedForRevision=" + markedForRevision +
+                ", revisionCount=" + revisionCount +
                 '}';
     }
 }

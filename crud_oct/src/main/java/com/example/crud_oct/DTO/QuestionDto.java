@@ -18,16 +18,27 @@ public class QuestionDto {
 
     private Boolean markedForRevision;
 
-    public QuestionDto(Long id, Technology technology, String question, String answer, String difficulty, Boolean markedForRevision) {
+    private Integer revisionCount;
+
+    public QuestionDto(Long id, Technology technology, String question, String answer, String difficulty, Boolean markedForRevision, Integer revisionCount) {
         this.id = id;
         this.technology = technology;
         this.question = question;
         this.answer = answer;
         this.difficulty = difficulty;
         this.markedForRevision = markedForRevision;
+        this.revisionCount = revisionCount;
     }
 
     public QuestionDto() {
+    }
+
+    public Integer getRevisionCount() {
+        return revisionCount;
+    }
+
+    public void setRevisionCount(Integer revisionCount) {
+        this.revisionCount = revisionCount;
     }
 
     public Long getId() {

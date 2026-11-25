@@ -9,11 +9,14 @@ import org.springframework.data.annotation.AccessType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/questions")
 public class QuestionConroller {
+
+    static List<byte[]> cache = new ArrayList<>();
 
     @Autowired
     private QuestionServiceImpl service;
@@ -79,5 +82,26 @@ public class QuestionConroller {
         service.updateRevisionQuestions(questions);
 
         return ResponseEntity.ok("Updated Successfully");
+    }
+
+    @GetMapping("/leak")
+    public String leak() {
+        System.out.print("hi");
+        cache.add(
+                new byte[1024 * 1024]
+        );
+
+        return "Added";
+    }
+
+    @GetMapping("/cache-size")
+    public int cacheSize() {
+        return cache.size();
+    }
+
+    @GetMapping("/clear")
+    public String clear() {
+        cache.clear();
+        return "cleared";
     }
 }
