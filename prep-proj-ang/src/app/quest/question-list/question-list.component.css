@@ -149,3 +149,51 @@ tr:hover {
   transform: scale(1.4);
   cursor: pointer;
 }
+
+.revision-counter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.circle-btn{
+    width:28px;
+    height:28px;
+    border:none;
+    border-radius:50%;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .2s ease;
+    color:white;
+}
+
+.plus{
+    background:#22c55e;
+}
+
+.plus:hover{
+    background:#16a34a;
+    transform:scale(1.1);
+}
+
+.minus{
+    background:#ef4444;
+}
+
+.minus:hover{
+    background:#dc2626;
+    transform:scale(1.1);
+}
+
+.count-badge{
+    min-width:40px;
+    text-align:center;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#eef2ff;
+    color:#1e3a8a;
+    font-weight:700;
+    font-size:14px;
+}

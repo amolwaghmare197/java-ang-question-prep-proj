@@ -30,13 +30,12 @@ dependencies {
 	// Swagger UI / OpenAPI Docs
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
 
-	// Flyway Migration Engines
-	/*implementation 'org.flywaydb:flyway-core:10.15.0'
-	implementation 'org.flywaydb:flyway-database-mysql:10.15.0'*/
-
 	// Testing tools
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.5'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Spring Boot Actuator for health checks and metrics
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	// Lombok
 	compileOnly 'org.projectlombok:lombok:1.18.36'

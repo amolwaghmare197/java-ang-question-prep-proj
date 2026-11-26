@@ -89,6 +89,7 @@
         <th>ID</th>
         <th>QUESTION</th>
         <th>REVISION</th>
+        <th>REVISION COUNT</th>
       </tr>
       </thead>
 
@@ -104,6 +105,28 @@
           <input
             type="checkbox"
             [(ngModel)]="item.markedForRevision">
+        </td>
+
+        <td>
+          <div class="revision-counter">
+
+            <button
+              class="circle-btn minus"
+              (click)="decrementCount(item)">
+              −
+            </button>
+
+            <span class="count-badge">
+      {{ item.revisionCount }}
+    </span>
+
+            <button
+              class="circle-btn plus"
+              (click)="incrementCount(item)">
+              +
+            </button>
+
+          </div>
         </td>
 
       </tr>

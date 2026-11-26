@@ -30,6 +30,9 @@ public class Question {
     @Column(name = "marked_for_revision ")
     private Boolean markedForRevision = false;
 
+    @Column(name="revision_count")
+    private Integer revisionCount = 0;
+
     private String difficulty;
 
 
@@ -37,15 +40,24 @@ public class Question {
 
     private LocalDateTime updated_at;
 
-    public Question(Long id, Technology technology, String question, String answer, Boolean markedForRevision,String difficulty, LocalDateTime createdDate, LocalDateTime updatedDate) {
+    public Question(Long id, Technology technology, String question, String answer, Boolean markedForRevision, Integer revisionCount, String difficulty, LocalDateTime created_at, LocalDateTime updated_at) {
         this.id = id;
         this.technology = technology;
         this.question = question;
         this.answer = answer;
         this.markedForRevision = markedForRevision;
+        this.revisionCount = revisionCount;
         this.difficulty = difficulty;
-        this.created_at = createdDate;
-        this.updated_at = updatedDate;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
+
+    public Integer getRevisionCount() {
+        return revisionCount;
+    }
+
+    public void setRevisionCount(Integer revisionCount) {
+        this.revisionCount = revisionCount;
     }
 
     public Question() {
@@ -123,6 +135,7 @@ public class Question {
                 ", question='" + question + '\'' +
                 ", answer='" + answer + '\'' +
                 ", markedForRevision=" + markedForRevision +
+                ", revisionCount=" + revisionCount +
                 ", difficulty='" + difficulty + '\'' +
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +

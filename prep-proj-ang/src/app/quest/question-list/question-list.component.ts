@@ -145,7 +145,8 @@ export class QuestionListComponent implements OnInit {
 
     const payload = this.questions.map(q => ({
       id: q.id,
-      markedForRevision: q.markedForRevision
+      markedForRevision: q.markedForRevision,
+      revisionCount: q.revisionCount
     }));
 
     console.log(payload);
@@ -166,5 +167,25 @@ export class QuestionListComponent implements OnInit {
       });
 
   }
+
+incrementCount(item: any): void {
+
+  item.revisionCount++;
+
+  // Optional API call
+  // this.questionService.updateCount(item.id, item.revisionCount)
+  //     .subscribe();
+}
+
+decrementCount(item: any): void {
+
+  if (item.revisionCount > 0) {
+    item.revisionCount--;
+  }
+
+  // Optional API call
+  // this.questionService.updateCount(item.id, item.revisionCount)
+  //     .subscribe();
+}
 
 }
